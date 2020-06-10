@@ -1,7 +1,6 @@
 # project specific
 
-dataset/
-videos/
+venv/*
 
 
 
