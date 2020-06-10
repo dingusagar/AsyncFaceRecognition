@@ -23,6 +23,7 @@ FRAME_WINDOW = 'Frame'
 RECOGNITION_WINDOW = 'Recognition'
 TEXT_WINDOW = 'Help'
 BG_THREAD_NAME = 'bg_thread'
+IMAGE_SUPER_RESOLUTION_METHOD = None # accepts 'psnr-small', 'psnr-large', 'gans' or None
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -48,6 +49,7 @@ writer = None
 time.sleep(2.0)
 
 
+# for communicating between main thread and recognition thread
 que =Queue()
 
 
@@ -66,8 +68,8 @@ cv2.namedWindow(RECOGNITION_WINDOW)
 cv2.moveWindow(RECOGNITION_WINDOW, 1000, 160) 
 
 
-# enhancement 
-enhancement = ImageEnhancement()
+# initialising enhancement module
+enhancement = ImageEnhancement(method=IMAGE_SUPER_RESOLUTION_METHOD)
 
 image_to_process = None
 processed_frame = np.zeros((224,224,3))
@@ -99,12 +101,12 @@ def log(text):
 def post_process_frame(frame):
 
     # Uncomment if you want to improve the resolution of the frame based on super resolution models. Will increase the latency
-	# frame = enhancement.improve_quality(frame,type='gans')
-	boxes = face_recognition.face_locations(rgb,
+	frame = enhancement.improve_quality(frame)
+	boxes = face_recognition.face_locations(frame,
 		model=args["detection_method"])
 
 
-	encodings = face_recognition.face_encodings(rgb, boxes)
+	encodings = face_recognition.face_encodings(frame, boxes)
 
 	names = []
 	for encoding in encodings:
