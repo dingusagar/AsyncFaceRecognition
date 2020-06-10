@@ -1,4 +1,4 @@
-# AsyncFaceRecognition
+# AsyncFaceRecognition with Super Resolution for biometric attendance system 
 A demo python application for face recognition based attendance system using enhancement of low resolution images by super resolution deep learning models. 
 
 This project was extended from the awesome [pyimagesearch blog](https://www.pyimagesearch.com/2018/06/18/face-recognition-with-opencv-python-and-deep-learning/). Check the blog for good explanations of the basic code.
@@ -20,3 +20,14 @@ After installing the prerequesites, follow the steps
 # Demo Video
 
 [![Alt text](https://img.youtube.com/vi/Z0n_G-kh5n0/0.jpg)](https://www.youtube.com/watch?v=Z0n_G-kh5n0)
+
+# Change Super Resolution Models
+In order to try out various super resolution models for enhancing the resolution before recognition task, 
+change the value of `IMAGE_SUPER_RESOLUTION_METHOD` in the file `recognize_faces_video_async.py`
+
+    IMAGE_SUPER_RESOLUTION_METHOD = 'psnr-small'
+    IMAGE_SUPER_RESOLUTION_METHOD = 'psnr-large'
+    IMAGE_SUPER_RESOLUTION_METHOD = 'gans' # GAN based Super Resolution  
+    IMAGE_SUPER_RESOLUTION_METHOD = None # No super resolution
+Refer the [docs](https://idealo.github.io/image-super-resolution/) of `ISR` module for more details about the super resolution models. 
+
