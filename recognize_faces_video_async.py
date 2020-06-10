@@ -98,6 +98,7 @@ def log(text):
 
 def post_process_frame(frame):
 
+    # Uncomment if you want to improve the resolution of the frame based on super resolution models. Will increase the latency
 	# frame = enhancement.improve_quality(frame,type='gans')
 	boxes = face_recognition.face_locations(rgb,
 		model=args["detection_method"])

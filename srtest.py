@@ -1,3 +1,6 @@
+# Sample program to test the Super Resolution Feature that improves the resolution of images based on deep learning models
+# Change the input image path according to your needs
+
 from enhanced_recognition import ImageEnhancement
 from face_recognition import load_image_file
 from matplotlib import pyplot as plt

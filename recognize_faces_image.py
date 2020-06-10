@@ -79,5 +79,5 @@ cv2.imshow("Image", image)
 cv2.waitKey(0)
 
 now  = datetime.now()
-title = "output/im-{}.jpg".format(now)
+title = "./classroom/qoutput/im-{}.jpg".format(now)
 cv2.imwrite(title,image)
