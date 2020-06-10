@@ -1,7 +1,9 @@
 # AsyncFaceRecognition with Super Resolution for biometric attendance system 
 A demo python application for face recognition based attendance system using enhancement of low resolution images by super resolution deep learning models. 
 
-This project was extended from the awesome [pyimagesearch blog](https://www.pyimagesearch.com/2018/06/18/face-recognition-with-opencv-python-and-deep-learning/). Check the blog for good explanations of the basic code.
+This project was extended from the awesome [pyimagesearch blog for face recognition](https://www.pyimagesearch.com/2018/06/18/face-recognition-with-opencv-python-and-deep-learning/). Check the blog for good explanations of the basic code.
+
+Uses `face_recognition` and `ISR` libraries for face recognition and Super resolution respectively.
 
 # Install Dependencies
 
